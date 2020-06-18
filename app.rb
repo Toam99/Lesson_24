@@ -33,6 +33,16 @@ post '/visit' do
         return erb :visit                
     end
 
+    if @phone == ''
+        @error = 'Enter your phone number'
+        return erb :visit                
+    end
+
+    if @datetime == ''
+        @error = 'Wrong date and time'                       
+    end
+
+
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
 
 end
