@@ -1,0 +1,48 @@
+
+<h2>Register</h2>
+<p>On this page you can register with our Barber Shop</p>
+
+<form action="/visit" method="POST">
+
+  <div class="form-group">
+    <label>Your name</label>
+    <input id="bbb", name="username" type="text" class="form-control" placeholder="Enter your name">
+  </div>
+
+  <div class="form-group">
+    <label>Your phone number</label>
+    <input name="phone" type="text" class="form-control ccc"  placeholder="Your phone number">
+  </div>
+
+  <div class="form-group">
+    <label>When to wait for you?</label>
+    <input id="aaa" name="datetime" type="text" class="form-control" placeholder="Enter date and time">
+  </div>
+
+    <div class="form-group">
+    <label>Your Barber:</label>
+      <select name="barber" class="form-control ccc">
+        <option>Arnold Springer</option>
+        <option>Hans-Joachim Stroth</option>
+        <option>Zeev Nedermann</option>
+        <option>William La Belle</option>
+        <option>Alan Chop</option>
+        
+        
+      </select>
+    
+    </div> 
+
+   <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+<script type="text/javascript">
+alert('Hello from visit page!');
+</script> 
+
+<script type="text/javascript">
+$('#aaa').css('background-color','lightyellow');
+$('#bbb').css('background-color','lightblue');
+$('.ccc').css('background-color','lightgreen');
+</script
