@@ -28,22 +28,16 @@ post '/visit' do
     @barber = params[:barber]
     @color = params[:color]
 
-   # hash for validation
-hh = {    :user_name => 'Enter your name',
-          :phone => 'Enter your phone number',
-          :date_time => 'Enter date and time' }
+    # hash for validation
+    hh = {    :username => 'Enter your name',
+              :phone => 'Enter your phone number',
+              :datetime => 'Enter date and time' }
 
-# for each pair is value
-hh.each do |key, value|
-  # if params empty
-  if params[key] == ''
-    # params @error to assign value from hassh hh
-    @error = hh[key]
+    @error = hh.select {|key,_| params[key] == ''}.values.join(", ")
 
-    # return performance
-    return erb :visit
-  end
-end
+    if @error != ''
+        return erb :visit
+    end
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
 
