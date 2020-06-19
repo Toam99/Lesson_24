@@ -28,28 +28,23 @@ post '/visit' do
     @barber = params[:barber]
     @color = params[:color]
 
-    if @username == ''
-        @error = 'Enter your name'
-        return erb :visit                
-    end
+   # hash for validation
+hh = {    :user_name => 'Enter your name',
+          :phone => 'Enter your phone number',
+          :date_time => 'Enter date and time' }
 
-    if @phone == ''
-        @error = 'Enter your phone number'
-        return erb :visit                
-    end
+# for each pair is value
+hh.each do |key, value|
+  # if params empty
+  if params[key] == ''
+    # params @error to assign value from hassh hh
+    @error = hh[key]
 
-    if @datetime == ''
-        @error = 'Wrong date and time'                       
-    end
-
+    # return performance
+    return erb :visit
+  end
+end
 
     erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
 
 end
-
-# 1 change "My Website" into "barbe Shop"
-# 2 add pages --> /about, /visit, /contacts,
-# 3 switch "erb" to call-get info from relevant file
-# 4 <script src="/vendor/jquery-3.5.1.min.js"></script>  latest verion by 16.06.2020
-# 5
-# 6 
